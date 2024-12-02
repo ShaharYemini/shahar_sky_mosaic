@@ -11,11 +11,11 @@ const handleOnMove = e => {
   if(track.dataset.mouseDownAt === "0") return;
   
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerHeight / 2;
+        maxDelta = window.innerWidth * 2;
   
   const percentage = (mouseDelta / maxDelta) * -100,
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -82);
+        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -88);
   
   track.dataset.percentage = nextPercentage;
   
@@ -54,7 +54,8 @@ var i = 0,
 // Typerwrite text content. Use a pipe to indicate the start of the second line "|".  
 var textArray = [
   "שלום לך! חשבתי מה אוכל לעשות כדי לשמח אותך, והגעתי לתוצאה הזו -|תוכלי להוריד את התמונה מהכפתור למעלה ולהגדיל קצת, אני מבטיח שזה שווה את זה",
-  "למען ההגינות אני אציין שבעוד שאת הקוד ליצור את התמונה כתבתי בעצמי, העיצוב של הדף הזה לקוח מדוגמאות שראיתי אצל אחרים"
+  "למען ההגינות אני אציין שבעוד שאת הקוד ליצור את התמונה כתבתי בעצמי, העיצוב של הדף הזה לקוח מדוגמאות שראיתי אצל אחרים",
+  "בנוסף, רציתי ליצור את התמונה הזו מהצילומים שלך בלבד, אבל חסרו הרבה גוונים.|בשביל להשלים הוספתי כמה תמונות מבינה מלאכותית שבהן השתמשתי לפני שהיו לי התמונות שלך, והאמת שהן ממלאות את רוב התמונה."
 ];
 
 // Speed (in milliseconds) of typing.
@@ -144,9 +145,9 @@ document.getElementById('ms-download').addEventListener('click', function () {
                     .createElement('a');
                 //link to the uploaded image
                 //  in your local storage
-                link.href = 'img/image.jpg';
+                link.href = 'detailedImage.jpg';
                 link.download = 'sky_mosaic_shahar.jpg';
                 document.body.appendChild(link);
-                sleep(4000).then(() => {link.click();})
+                sleep(2000).then(() => {link.click();})
                 document.body.removeChild(link);
             });

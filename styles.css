@@ -32,7 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8vmin;
-  margin-left: 20vmin;
+  margin-right: 3vmin;
 }
 
 @font-face {
@@ -114,10 +114,6 @@ p.cursor::after {
 #ms-download {
   display: none;
 }
-#ms-download:checked ~ .ms-line-down-container {
-  transform: rotate(-360deg);
-  transition: transform 1.5s ease 1.25s;
-}
 
 .ms-line-down {
   position: absolute;
@@ -158,13 +154,13 @@ p.cursor::after {
 #ms-download:checked ~ .ms-line-point:before {
   transform: rotate(90deg);
   right: -10px;
-  animation: ms-check-right .25s forwards 3s;
+  animation: ms-check-right .25s forwards 1s;
 }
 
 #ms-download:checked ~ .ms-line-point:after {
   transform: rotate(-90deg);
   left: -10px;
-  animation: ms-check-left .25s forwards 3s;
+  animation: ms-check-left .25s forwards 1s;
 }
 
 .ms-line-point:before,
@@ -201,6 +197,7 @@ p.cursor::after {
   }
   100% {
     top: -190px;
+    opacity: 0;
   }
 }
 
