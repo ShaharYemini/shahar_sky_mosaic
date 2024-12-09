@@ -17,7 +17,14 @@ body {
   user-select: none; /* -- Prevent image highlighting -- */
 }
 
-#image-track > .image {
+#banana {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10vmin;
+  user-select: none; /* -- Prevent image highlighting -- */
+}
+
+#banana > .image {
   width: 25vmin;
   height: 75vmin;
   object-fit: cover;
