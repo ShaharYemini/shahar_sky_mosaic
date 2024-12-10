@@ -36,7 +36,7 @@ function displayImages(seed, totalImages) {
 }
 
 // Usage example: seed is 1234, and we want 36 images
-displayImages(1234, 43);
+displayImages(1234, 48);
 
 const track = document.getElementById("image-track");
 
@@ -49,13 +49,15 @@ const handleOnUp = () => {
 
 const handleOnMove = e => {
   if (track.dataset.mouseDownAt === "0") return;
-
+  const lastContainer = document.getElementById('edge');
+  var rect = lastContainer.getBoundingClientRect();
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
     maxDelta = window.innerWidth * 4;
+  if (rect.right < window.innerWidth && mouseDelta > 0) return;
 
   const percentage = (mouseDelta / maxDelta) * -100,
     nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-    nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -92.7);
+    nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
 
   track.dataset.percentage = nextPercentage;
 
